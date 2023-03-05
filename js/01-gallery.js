@@ -20,3 +20,14 @@ function createGalleryImage(gallery) {
     .join('');
 }
 
+function onGalleryModalClick(e) {
+    e.preventDefault();
+
+    if (!e.target.classList.contains('gallery__image')) {
+        return;
+    }
+
+    onLightBoxModal(e) {
+        const instance = basicLightBox.create('<img src="${e.target.dataset.source}" width="1280" height="auto"/>')
+    }
+}
