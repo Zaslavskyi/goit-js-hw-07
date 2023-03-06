@@ -6,22 +6,16 @@ console.log(galleryItems);
 const galleryContainer = document.querySelector('.gallery');
 const galleryImage = createGalleryImage(galleryItems);
 
-galleryContainer.insertAdjacentHTML('beforeend', galleryImage);
+galleryContainer.setAttribute('uk-lightbox', 'caption-position: bottom');
+galleryContainer.addEventListener('click', onGalleryListClick);
 
 function createGalleryImage(gallery) {
-    return gallery.map(({ preview, original, description}) => {
-        createImage(block);
-    });
-    .join('');
-    };
+    return gallery.map(({preview, original, description}) => {
+        const element = document.createElement('a');
+        element.href = original;
+        element.classList.add('gallery__item');
+        element.dataset.caption = description;
 
-    function createImage(block) {
-        return `
-        <div class="gallery__item">
-        <a class="gallery__link" href="${original}">
-        <img class="gallery__image" src="${preview}"
-        alt="${description}" width="340">
-        </a>
-        </div>
-        `;
-    }
+        const image = 
+    })
+}
