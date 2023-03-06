@@ -8,6 +8,7 @@ const galleryImage = createGalleryImage(galleryItems);
 
 galleryContainer.setAttribute('uk-lightbox', 'caption-position: bottom');
 galleryContainer.addEventListener('click', onGalleryListClick);
+galleryContainer.append(...galleryImage);
 
 function createGalleryImage(gallery) {
     return gallery.map(({ preview, original, description}) => {
@@ -22,8 +23,9 @@ function createGalleryImage(gallery) {
         image.alt = description;
         image.title = description;
         image.delay = 250;
-        imagetitlePosition = 'top';
-        image.append(image);
-        return image;
-    })
-}
+        image.titlePosition = 'top';
+        item.append(image);
+        return item;
+    });
+};
+
