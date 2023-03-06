@@ -29,3 +29,24 @@ function createGalleryImage(gallery) {
     });
 };
 
+function onGalleryClick(e) {
+    e.preventDefault();
+        
+        if (e.target.nodeName !== 'IMG') {
+            return;
+        };
+
+        let href = (e.target.closest('a').getAttribute('href'));
+        return href;
+
+};
+
+let gallery = new SimpleLightbox('.gallery a');
+
+gallery.on('show.simplelightbox', function() {
+
+});
+
+gallery.on('error.simplelightbox', function(e) {
+    console.log(e);
+})
