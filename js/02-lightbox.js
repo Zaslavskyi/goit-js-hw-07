@@ -10,12 +10,20 @@ galleryContainer.setAttribute('uk-lightbox', 'caption-position: bottom');
 galleryContainer.addEventListener('click', onGalleryListClick);
 
 function createGalleryImage(gallery) {
-    return gallery.map(({preview, original, description}) => {
-        const element = document.createElement('a');
-        element.href = original;
-        element.classList.add('gallery__item');
-        element.dataset.caption = description;
+    return gallery.map(({ preview, original, description}) => {
+        const item = document.createElement('a');
+        item.href = original;
+        item.classList.add('gallery__item');
+        item.dataset.caption = description;
 
-        const image = 
+        const image = document.createElement('img');
+        image.src = preview;
+        image.classList.add('gallary__image');
+        image.alt = description;
+        image.title = description;
+        image.delay = 250;
+        imagetitlePosition = 'top';
+        image.append(image);
+        return image;
     })
 }
