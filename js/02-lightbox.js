@@ -7,7 +7,7 @@ const galleryContainer = document.querySelector('.gallery');
 const galleryImage = createGalleryImage(galleryItems);
 
 galleryContainer.setAttribute('uk-lightbox', 'caption-position: bottom');
-galleryContainer.addEventListener('click', onGalleryListClick);
+galleryContainer.addEventListener('click', onGalleryClick);
 galleryContainer.append(...galleryImage);
 
 function createGalleryImage(gallery) {
@@ -41,12 +41,7 @@ function onGalleryClick(e) {
 
 };
 
-let gallery = new SimpleLightbox('.gallery a');
-
-gallery.on('show.simplelightbox', function() {
-
+const lightbox = new SimpleLightbox('.gallery a', {
+    caption: true,
+    captionDelay: 250
 });
-
-gallery.on('error.simplelightbox', function(e) {
-    console.log(e);
-})
