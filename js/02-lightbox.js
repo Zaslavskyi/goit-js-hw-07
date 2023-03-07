@@ -1,5 +1,5 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
+
 
 console.log(galleryItems);
 
@@ -7,7 +7,7 @@ const galleryContainer = document.querySelector('.gallery');
 const galleryImage = createGalleryImage(galleryItems);
 
 galleryContainer.setAttribute('uk-lightbox', 'caption-position: bottom');
-galleryContainer.addEventListener('click', onGalleryClick);
+
 galleryContainer.append(...galleryImage);
 
 function createGalleryImage(gallery) {
@@ -29,17 +29,6 @@ function createGalleryImage(gallery) {
     });
 };
 
-function onGalleryClick(e) {
-    e.preventDefault();
-        
-        if (e.target.nodeName !== 'IMG') {
-            return;
-        };
-
-        let href = (e.target.closest('a').getAttribute('href'));
-        return href;
-
-};
 
 const lightbox = new SimpleLightbox('.gallery a', {
     caption: true,
